@@ -23,7 +23,7 @@ def predict():
     return render_template('index.html', prediction_text='Activity will be {}'.format(output))
 
 @app.route('/result',methods=['GET'])
-def predict():
+def resultofmodel():
     '''
     For rendering results on HTML GUI
     '''
