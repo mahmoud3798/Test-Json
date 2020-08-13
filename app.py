@@ -22,6 +22,15 @@ def predict():
 
     return render_template('index.html', prediction_text='Activity will be {}'.format(output))
 
+@app.route('/result',methods=['GET'])
+def predict():
+    '''
+    For rendering results on HTML GUI
+    '''
+    data = request.get_json(force=True)
+    prediction = model.predict([np.array(data['latitude','longitude'])])
+    output = prediction[0]
+    return jsonify(output)
 
 if __name__ == "__main__":
     app.run(debug=True)
