@@ -28,7 +28,7 @@ def resultofmodel():
     For rendering results on HTML GUI
     '''
     data = request.get_json(force=True)
-    prediction = model.predict([np.array(data['latitude','longitude'])])
+    prediction = model.predict([np.array(data)])
     output = prediction[0]
     return jsonify(output)
 
